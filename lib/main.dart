@@ -19,7 +19,58 @@ class MyApp extends StatelessWidget {
         fontFamily: "SF UI",
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: GroupCallScreen(),
+      home: ManageScreen(),
+    );
+  }
+}
+
+class ManageScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Demo app with dial'),
+      ),
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => AudioCallWithImage(),
+                      ),
+                    );
+                  },
+                  child: Text('AudioCallWithImage'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => GroupCallScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('GroupCallScreen'),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => DialScreen(),
+                      ),
+                    );
+                  },
+                  child: Text('DialScreen'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
